@@ -9,17 +9,13 @@ interface Props {
 }
 
 
-
 export const PokemonGrid = ({pokemons}:Props) => {
 
   return (
     <div className="w-full p-4 grid grid-cols-4 gap-5">
-    
- 
-    {pokemons.map((pokemon) => (
+      {pokemons.map((pokemon) => (
         <PokemonCard  key={pokemon.id}  pokemon={pokemon}/>
       ))}
-     </div>
-
+    </div>
   )
 }
