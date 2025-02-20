@@ -6,6 +6,7 @@ export default {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./shopinCart/**/*.{js,ts,jsx,tsx,mdx}", // Asegúrate de agregar esta línea
+    "./pokemons/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
