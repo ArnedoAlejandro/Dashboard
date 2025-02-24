@@ -14,7 +14,6 @@ const CounterPage = () => {
   return (
     <div className="w-full h-full flex flex-col gap-5 justify-center items-center ">
       <span className="text-4xl">CounterPage</span>
-   
       <CartCounter value={10}/>
     </div>
   )

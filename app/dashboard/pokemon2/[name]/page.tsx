@@ -5,27 +5,21 @@ import { notFound } from "next/navigation"
 
 
 interface Props  {
-  params  : {id : string}
+  params  : {name: string}
 }
 
 
-export const metadata = {
- title: 'Pokemon ID',
- description: 'Pokemon ID',
-};
-
-
-// TODO : Metadata dinamica, en este caso se le pasa el params que seria el id del poquemon
+// TODO : Metadata dinamica, en este caso se le pasa el params que seria el id del pokemon
 // 1- Creacion de funcion asyncrona ya que se genera una llamada a una api, Se importa <Metadata> 
 // import { Metadata } from "next"
 export async function generateMetadata({params} : Props): Promise<Metadata> {
   try {
 // 2- Llamada a la api
-  const pokemon = await getPokemon(params.id)
+  const pokemon = await getPokemon(params.name)
 // 3- Paso de parametros para que nos retorne
     return {
-      title:`Nombre ${pokemon.name} - ${pokemon.id}`,
-      description: `${pokemon.name} - ${pokemon.id}`,
+      title:`Nombre ${pokemon.name} `,
+      description: `${pokemon.name} `,
     }
   } catch (error) {
     return {
@@ -35,12 +29,11 @@ export async function generateMetadata({params} : Props): Promise<Metadata> {
   }
 }
 
-const getPokemon = async (id : string) : Promise<Pokemon> => {
+const getPokemon = async (name : string) : Promise<Pokemon> => {
   try {
-    const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
+    const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
     .then(res => res.json())
 
-    console.log(pokemon)
     return pokemon
   } catch (error) {
     notFound()
@@ -50,7 +43,7 @@ const getPokemon = async (id : string) : Promise<Pokemon> => {
 
   export default async function PokemonPage({ params }: Props) {
 
-    const pokemon = await getPokemon(params.id);
+    const pokemon = await getPokemon(params.name);
     
   
     return (

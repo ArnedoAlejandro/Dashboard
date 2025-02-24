@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { IoAddCircleSharp, IoBrowsersOutline, IoCalculator, IoLogoReact } from "react-icons/io5";
+import { IoAddCircleSharp, IoBrowsersOutline, IoCalculator, IoHeart, IoLogoReact } from "react-icons/io5";
 import SidebarMenuItems from "./SidebarMenuItems";
 
 const menuItems= [{
@@ -17,6 +17,16 @@ const menuItems= [{
   icon: <IoAddCircleSharp size={40}/>,
   title: "Pokemon",
   subtitle: "Api pokemon",
+},{
+  path: "/dashboard/pokemon2",
+  icon: <IoAddCircleSharp size={40}/>,
+  title: "Pokemon2",
+  subtitle: "Tarea Api ",
+},{
+  path: "/dashboard/favorite",
+  icon: <IoHeart size={40}/>,
+  title: "Favoritos",
+  subtitle: "Listado de pokemon favoritos ",
 }]
 
 const Sidebar = () => {

@@ -1,20 +1,21 @@
 "use client"
-import { useState } from "react"
+import { useAppDispatch, useAppSelector } from "@/store"
+import { addOne, extractOne, validCountState } from "@/store/counter/counterSlice"
+import { useEffect } from "react"
+
 
 interface Props {
   value:number
 }
 const CartCounter = ({value = 0 }:Props) => {
 
-  const [count, setCount ] = useState(value)
+  const count = useAppSelector(state => state.counter.count)
+  const dispatch = useAppDispatch()
 
-  const suma = ()=>{
-    setCount((statePrev)=>{return statePrev + 1})
-  }
-  const resta = ()=>{
-    if(count === 0) return
-    setCount((statePrev)=>{return statePrev -1 })
-  }
+  useEffect(() => {
+    dispatch(validCountState(value))
+  }, [dispatch, value])
+
 
 
   return (
@@ -23,17 +24,18 @@ const CartCounter = ({value = 0 }:Props) => {
       <div className="flex gap-5 ">
         <button 
           className="p-2 bg-black/50 rounded-lg w-16 text-white font-semibold shadow-black/40 shadow-md transition-all duration-200 hover:bg-black/60  hover:shadow-none"
-          onClick={resta}
+          onClick={ () => dispatch(extractOne())}
         >
         -1
-      </button>
-      <button 
-        className="p-2 bg-black/50 !rounded-lg !w-16 text-white !font-semibold !shadow-md transition-all duration-200 hover:bg-black/60 hover:shadow-none"
-        onClick={suma}
-      >
-        +1
-      </button>
+        </button>
+        <button 
+          className="p-2 bg-black/50 !rounded-lg !w-16 text-white !font-semibold !shadow-md transition-all duration-200 hover:bg-black/60 hover:shadow-none"
+          onClick={ () => dispatch(addOne())}
+        >
+          +1
+        </button>
       </div>
+
     </>
   )
 }
