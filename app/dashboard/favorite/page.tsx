@@ -1,17 +1,17 @@
-import { PokemonGrid2 } from '../../../pokemons/components/PokemonGrid2';
+import Favorite from '@/pokemons/components/Favorite';
 
 
 export const metadata = {
- title: 'Favoritos',
- description: 'Favoritos',
+  title: 'Favoritos',
+  description: 'Favoritos',
 };
 const FavoritePokemon = async() => {
+
 
   return (
     <div>
       <p className="text-4xl text- emerald-600 ">Pokemones favoritos</p>
-      <PokemonGrid2 pokemons={[]} />
-
+      <Favorite/>
     </div>
     
   )

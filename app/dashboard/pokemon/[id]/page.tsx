@@ -9,10 +9,6 @@ interface Props  {
 }
 
 
-export const metadata = {
- title: 'Pokemon ID',
- description: 'Pokemon ID',
-};
 
 
 // TODO : Metadata dinamica, en este caso se le pasa el params que seria el id del poquemon
